@@ -1,0 +1,15 @@
+html, body {
+    overflow-y: hidden;
+}
+
+.wrapper {
+    margin: auto 30px;
+}
+
+.wrapper h3.ui.header {
+    margin-top: 25px;
+}
+
+.wrapper .ui.attached.segment span:last-of-type {
+    float: right;
+}
