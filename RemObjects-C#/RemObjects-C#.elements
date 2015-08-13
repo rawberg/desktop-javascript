@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build" ToolsVersion="4.0">
+    <PropertyGroup>
+        <RootNamespace>RemObjectsC</RootNamespace>
+        <ProjectGuid>42B625AD-10DD-4A40-89E4-9A816CF76DAD</ProjectGuid>
+        <OutputType>executable</OutputType>
+        <AssemblyName>RemObjectsC</AssemblyName>
+        <AllowGlobals>False</AllowGlobals>
+        <AllowLegacyWith>False</AllowLegacyWith>
+        <AllowLegacyOutParams>False</AllowLegacyOutParams>
+        <AllowLegacyCreate>False</AllowLegacyCreate>
+        <AllowUnsafeCode>False</AllowUnsafeCode>
+        <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+        <SDK>OS X</SDK>
+        <CreateAppBundle>True</CreateAppBundle>
+        <InfoPListFile>.\Resources\Info.plist</InfoPListFile>
+        <EntitlementsFile>Resources\Entitlements.entitlements</EntitlementsFile>
+        <MacIconFile>.\Resources\App.icns</MacIconFile>
+        <BundleIdentifier>org.me.RemObjects-C#</BundleIdentifier>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <Optimize>false</Optimize>
+        <OutputPath>.\bin\Debug</OutputPath>
+        <DefineConstants>DEBUG;TRACE;</DefineConstants>
+        <GenerateDebugInfo>True</GenerateDebugInfo>
+        <EnableAsserts>True</EnableAsserts>
+        <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+        <CaptureConsoleOutput>False</CaptureConsoleOutput>
+        <WarnOnCaseMismatch>True</WarnOnCaseMismatch>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <Optimize>true</Optimize>
+        <OutputPath>.\bin\Release</OutputPath>
+        <GenerateDebugInfo>False</GenerateDebugInfo>
+        <EnableAsserts>False</EnableAsserts>
+        <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+        <CaptureConsoleOutput>False</CaptureConsoleOutput>
+        <WarnOnCaseMismatch>True</WarnOnCaseMismatch>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Cocoa.fx"/>
+        <Reference Include="rtl.fx"/>
+        <Reference Include="libNougat.fx"/>
+        <Reference Include="JavaScriptCore.fx"/>
+        <Reference Include="WebKit.fx"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="AppDelegate.cs"/>
+        <Compile Include="MainWindowController.cs"/>
+        <None Include="Resources\Entitlements.entitlements"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Resources"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="Resources\Info.plist"/>
+        <Content Include="Resources\App.icns"/>
+        <Xib Include="MainWindowController.xib">
+            <DependentUpon>MainWindowController.cs</DependentUpon>
+        </Xib>
+        <Xib Include="Resources\MainMenu.xib"/>
+        <Compile Include="MyFrameLoadDelegate.cs"/>
+        <Compile Include="MyNativeBridge.cs"/>
+    </ItemGroup>
+    <Import Project="$(MSBuildExtensionsPath)/RemObjects Software/Oxygene/RemObjects.Oxygene.Nougat.targets"/>
+</Project>
