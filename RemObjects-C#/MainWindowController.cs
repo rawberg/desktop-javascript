@@ -24,7 +24,7 @@ namespace RemObjectsC {
 			NSUserDefaults.standardUserDefaults.setBool(true) forKey("WebKitDeveloperExtras");
 			NSUserDefaults.standardUserDefaults.synchronize();
 			
-			NSURLRequest req = new NSURLRequest withURL(new NSURL withString("http://demo.desktopjavascript.dev:8888/"));
+			NSURLRequest req = new NSURLRequest withURL(new NSURL withString("http://demo.desktopjavascript.com/"));
 			myWebView.mainFrame.loadRequest(req);
 		}
 	}
