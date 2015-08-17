@@ -30,7 +30,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [myWebView setFrameLoadDelegate: [[MyFrameLoadDelegate alloc] init]];
-    [[myWebView mainFrame] loadRequest: [NSURLRequest requestWithURL: [NSURL URLWithString:@"http://demo.desktopjavascript.dev:8888/index.html"]]];
+    [[myWebView mainFrame] loadRequest: [NSURLRequest requestWithURL: [NSURL URLWithString:@"http://demo.desktopjavascript.com/index.html"]]];
 }
 
 @end

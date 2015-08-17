@@ -43,5 +43,5 @@ Thumbs.db
 #JS
 webpack.config.js
 node_modules/
-demo-desktop-javascript-app/Gruntfile.js
-demo-desktop-javascript-app/build/
+demo-javascript-app/Gruntfile.js
+demo-javascript-app/build/
