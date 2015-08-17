@@ -15,7 +15,7 @@ Makefile.in
 *.cache
 *.pidb
 *.userprefs
-*.usertasks
+*.usertasksBrendan Zagaeski 
 config.log
 config.make
 config.status
@@ -43,3 +43,5 @@ Thumbs.db
 #JS
 webpack.config.js
 node_modules/
+demo-desktop-javascript-app/Gruntfile.js
+demo-desktop-javascript-app/build/

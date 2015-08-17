@@ -33,7 +33,7 @@ namespace XamarinMac {
             Window.ContentView.AddSubview(myWebView);
 
             myWebView.FrameLoadDelegate = new MyFrameLoadDelegate();
-            myWebView.MainFrame.LoadRequest(new NSUrlRequest(new NSUrl("http://demo.desktopjavascript.dev:8888")));
+            myWebView.MainFrame.LoadRequest(new NSUrlRequest(new NSUrl("http://demo.desktopjavascript.com")));
         }
 
         public new MainWindow Window {
