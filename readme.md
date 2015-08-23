@@ -3,14 +3,14 @@
     <li>
         <h3>C#</h3>
         <ul class="example list">
-            <li>[Xamarin.Mac - Cocoa](https://github.com/rawberg/desktop-javascript/tree/master/Xamarin-Mac)</li>
-            <li>[RemObjects Elements - Cocoa](https://github.com/rawberg/desktop-javascript/tree/master/RemObjects-C%23)</li>
+            <li><a href="https://github.com/rawberg/desktop-javascript/tree/master/Xamarin-Mac">Xamarin.Mac - Cocoa</a></li>
+            <li><a href="https://github.com/rawberg/desktop-javascript/tree/master/RemObjects-C%23">RemObjects Elements - Cocoa</a></li>
         </ul>
     </li>
     <li>
         <h3>Objective-C</h3>
         <ul class="example list">
-            <li>[Cocoa](https://github.com/rawberg/desktop-javascript/tree/master/Objective-C)</li>
+            <li><a href="https://github.com/rawberg/desktop-javascript/tree/master/Objective-C">Cocoa</a></li>
         </ul>
     </li>
     <li>
