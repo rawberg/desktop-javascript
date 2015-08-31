@@ -16,7 +16,7 @@
     <li>
         <h3>Swift</h3>
         <ul class="example list">
-            <li><a href="https://github.com/rawberg/desktop-javascript/tree/master/Swift">Cocoa</a></li>
+            <li><a href="https://github.com/rawberg/desktop-javascript/tree/master/Swift/SwiftDesktop">Cocoa</a></li>
         </ul>
     </li>
     <li>

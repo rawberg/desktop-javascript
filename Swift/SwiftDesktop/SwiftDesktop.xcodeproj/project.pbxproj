@@ -12,11 +12,11 @@
 		6304724F1B938A9E0063EC5B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6304724D1B938A9E0063EC5B /* MainMenu.xib */; };
 		6304725B1B938A9E0063EC5B /* SwiftDesktopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6304725A1B938A9E0063EC5B /* SwiftDesktopTests.swift */; };
 		630472651B938B3E0063EC5B /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630472641B938B3E0063EC5B /* MainWindowController.swift */; };
-		630472671B938BCD0063EC5B /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 630472661B938BCD0063EC5B /* MainWindowController.xib */; };
 		630472691B93A7600063EC5B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630472681B93A7600063EC5B /* WebKit.framework */; };
 		6304726B1B93A7EB0063EC5B /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6304726A1B93A7EB0063EC5B /* JavaScriptCore.framework */; };
 		6304726D1B93AF1B0063EC5B /* MyNativeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6304726C1B93AF1B0063EC5B /* MyNativeBridge.swift */; };
 		6304726F1B93C1060063EC5B /* MyFrameLoadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6304726E1B93C1060063EC5B /* MyFrameLoadDelegate.swift */; };
+		630472721B9423C80063EC5B /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 630472701B9423C80063EC5B /* MainWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,11 +39,11 @@
 		630472591B938A9E0063EC5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6304725A1B938A9E0063EC5B /* SwiftDesktopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDesktopTests.swift; sourceTree = "<group>"; };
 		630472641B938B3E0063EC5B /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
-		630472661B938BCD0063EC5B /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindowController.xib; path = ../MainWindowController.xib; sourceTree = "<group>"; };
 		630472681B93A7600063EC5B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		6304726A1B93A7EB0063EC5B /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		6304726C1B93AF1B0063EC5B /* MyNativeBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNativeBridge.swift; sourceTree = "<group>"; };
 		6304726E1B93C1060063EC5B /* MyFrameLoadDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFrameLoadDelegate.swift; sourceTree = "<group>"; };
+		630472711B9423C80063EC5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				630472491B938A9E0063EC5B /* AppDelegate.swift */,
-				630472661B938BCD0063EC5B /* MainWindowController.xib */,
+				630472701B9423C80063EC5B /* MainWindowController.xib */,
 				6304724B1B938A9E0063EC5B /* Images.xcassets */,
 				6304724D1B938A9E0063EC5B /* MainMenu.xib */,
 				630472471B938A9E0063EC5B /* Supporting Files */,
@@ -207,7 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6304724C1B938A9E0063EC5B /* Images.xcassets in Resources */,
-				630472671B938BCD0063EC5B /* MainWindowController.xib in Resources */,
+				630472721B9423C80063EC5B /* MainWindowController.xib in Resources */,
 				6304724F1B938A9E0063EC5B /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +258,14 @@
 				6304724E1B938A9E0063EC5B /* Base */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		630472701B9423C80063EC5B /* MainWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				630472711B9423C80063EC5B /* Base */,
+			);
+			name = MainWindowController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
