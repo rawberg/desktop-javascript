@@ -8,6 +8,7 @@ resources/*.storyboardc
 .DS_Store
 nbproject
 .redcar
+build-MacOSX
 #*#
 *~
 *.sw[po]

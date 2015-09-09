@@ -5,8 +5,8 @@ class MyFrameLoadDelegate
 
   def webView(sender, didCreateJavaScriptContext: context, forFrame: frame)
     NSLog("MyFrameLoadDelegate - did create javascript context")
-    # never executes....
-    # does RubyMotion support JavaScriptCore / JSContext?
-    context.evaluateScript("console.log('hello from ruby motion)'")
+    nativeBridge = MyNativeBridge.alloc.init
+    context["nativeBridge"] = nativeBridge
+    # context.evaluateScript('console.log("hello from ruby motion")')
   end
 end
