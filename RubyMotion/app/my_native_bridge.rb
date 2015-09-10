@@ -1,10 +1,14 @@
-class MyNativeBridgeJSExport < NSObject
-
-end
-
-class MyNativeBridge < MyNativeBridgeJSExport
+class MyNativeBridge < VendorNativeBridge
   def fetchMountedVolumes(jsOptions)
     jsCallback = jsOptions["callback"]
-    jsCallback.callWithArguments([])
+    jsCallback.callWithArguments([[
+                                   {:id => "uniqua",
+                                    :name => "Mac HD",
+                                    :bytesAvailableCount => 100,
+                                    :bytesAvailableUnit => "GB",
+                                    :bytesTotalCount => 500,
+                                    :bytesTotalUnit => "GB",
+                                   }
+                                 ]])
   end
 end

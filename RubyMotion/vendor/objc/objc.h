@@ -1,7 +1,10 @@
-#import <WebKit/WebKit.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 #import <Cocoa/Cocoa.h>
 
-@protocol MyNativeBridgeJSExport <JSExport>
+@protocol VendorNativeBridgeJSExport <JSExport>
 - (void)fetchMountedVolumes:(JSValue *)jsOptions;
+@end
+
+@interface VendorNativeBridge : NSObject <VendorNativeBridgeJSExport>
+- (void)fetchMountedVolumes:(JSValue *)jsoptions;
 @end
