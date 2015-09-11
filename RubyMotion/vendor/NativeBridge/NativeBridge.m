@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
-#import "objc.h"
+#import "NativeBridge.h"
 
-@implementation VendorNativeBridge
+@implementation NativeBridge
 - (void)fetchMountedVolumes:(JSValue *)jsoptions {
 }
 @end

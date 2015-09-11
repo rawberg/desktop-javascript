@@ -22,7 +22,7 @@
     <li>
         <h3>Ruby</h3>
         <ul class="example list">
-            <li><a href="https://github.com/rawberg/desktop-javascript/tree/master/RubyMotion">RubyMotion - Cocoa (work in progress)</a></li>
+            <li><a href="https://github.com/rawberg/desktop-javascript/tree/master/RubyMotion">RubyMotion - Cocoa</a></li>
         </ul>
     </li>
 </ul>
