@@ -12,5 +12,5 @@ Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
   app.name = 'RubyMotion - DesktopJavaScript'
   app.frameworks += ['WebKit', 'JavaScriptCore']
-  app.vendor_project('vendor/objc', :static)
+  app.vendor_project('vendor/NativeBridge', :static)
 end
