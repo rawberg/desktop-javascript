@@ -3,17 +3,26 @@ using WebKit;
 using JavaScriptCore;
 
 namespace RemObjectsC {
-	# error E28: Unknown type "JSExport"
-	interface MyNativeBridgeJSExport: JSExport {
-		void FetchMountedVolumes(JSValueRef jsOptions);
+	public interface MyNativeBridgeJSExport: IJSExport {
+		void fetchMountedVolumes(JSValue jsOptions);
 	}
 	
-	# error E48: There are no overloads that have 1 generic parameters
-	public class MyNativeBridge: NSObject <MyNativeBridgeJSExport> {
-		JSContextRef jsContext { get; set; }
+	class MyNativeBridge: MyNativeBridgeJSExport {
+		JSContext jsContext { get; set; }
 		
-		public void FetchMountedVolumes(JSValueRef jsOptions) {
+		public MyNativeBridge(JSContext newContext) {
+			this.jsContext = newContext;
+		}
 		
+		public void fetchMountedVolumes(JSValue jsOptions) {
+			NSMutableArray volumes = this.getMountedVolumes();
+			JSValue jsCallback = jsOptions.valueForProperty("callback");
+			jsCallback.callWithArguments(volumes);
+		}
+		
+		public NSMutableArray getMountedVolumes() {
+			NSMutableArray emptyArray = new NSMutableArray();
+			return emptyArray;
 		}
 	}
 }

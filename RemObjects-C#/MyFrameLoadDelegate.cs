@@ -4,11 +4,9 @@ using WebKit;
 
 namespace RemObjectsC {
 
-	public class MyFrameLoadDelegate: NSObject {
+	public class MyFrameLoadDelegate: IWebFrameLoadDelegate {
 	
-		public void webView(WebView webView) didCreateJavaScriptContext(JSContextRef context) forFrame(WebFrame frame) {
-			# error E44: No member "evaluateScript" on type "JSContextRef"
-			context.evaluateScript("console.log('hello from native');");
+		public void webView(WebView webView) didCreateJavaScriptContext(JSContext context) forFrame(WebFrame frame) {
 			MyNativeBridge myNativeBridge = new MyNativeBridge();
 			context["nativeBridge"] = myNativeBridge;
 		}
