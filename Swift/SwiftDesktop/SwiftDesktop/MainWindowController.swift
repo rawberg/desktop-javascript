@@ -24,9 +24,9 @@ class MainWindowController: NSWindowController {
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: webDevExtras)
         NSUserDefaults.standardUserDefaults().synchronize()
         
-        self.myWebView = WebKit.WebView(frame: self.window!.contentView.bounds, frameName: "MainWindowController", groupName: "")
-        self.myWebView?.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable | NSAutoresizingMaskOptions.ViewHeightSizable
-        self.window!.contentView.addSubview(self.myWebView!)
+        self.myWebView = WebKit.WebView(frame: self.window!.contentView!.bounds, frameName: "MainWindowController", groupName: "")
+        self.myWebView?.autoresizingMask = [NSAutoresizingMaskOptions.ViewWidthSizable, NSAutoresizingMaskOptions.ViewHeightSizable]
+        self.window!.contentView!.addSubview(self.myWebView!)
         
 
         self.myWebView!.frameLoadDelegate = self.myFrameLoadDelegate

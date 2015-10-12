@@ -9,9 +9,9 @@ import Cocoa
 import WebKit
 import JavaScriptCore
 
-class MyFrameLoadDelegate: NSObject {
+class MyFrameLoadDelegate: NSObject, WebFrameLoadDelegate {
     
-    override func webView(sender: WebView!, didCreateJavaScriptContext context: JSContext!, forFrame: WebFrame!) {
+    func webView(sender: WebView!, didCreateJavaScriptContext context: JSContext!, forFrame: WebFrame!) {
         let myNativeBridge = MyNativeBridge(newContext: context)
         context.setObject(myNativeBridge, forKeyedSubscript: "nativeBridge")
     }

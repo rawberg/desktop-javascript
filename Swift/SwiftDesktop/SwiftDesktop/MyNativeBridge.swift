@@ -20,7 +20,7 @@ class MyNativeBridge: NSObject, MyNativeBridgeJSExport {
         self.jsContext = newContext
         
         self.jsContext.exceptionHandler = { context, exception in
-            println("JS Exception: \(exception)")
+            print("JS Exception: \(exception)")
         }
     }
        
@@ -32,7 +32,7 @@ class MyNativeBridge: NSObject, MyNativeBridgeJSExport {
     }
     
     func getMountedVolumes() -> NSMutableArray {
-        var volumesList = NSMutableArray()
+        let volumesList = NSMutableArray()
         let fileManager = NSFileManager.defaultManager()
         let volumeResKeys = [NSURLVolumeLocalizedNameKey,
                              NSURLVolumeTotalCapacityKey,
@@ -41,21 +41,23 @@ class MyNativeBridge: NSObject, MyNativeBridgeJSExport {
                              NSURLVolumeIdentifierKey,
                              NSURLVolumeURLKey]
         
-        let volumeUrls = fileManager.mountedVolumeURLsIncludingResourceValuesForKeys(volumeResKeys, options: nil)
-        
+        let volumeUrls = fileManager.mountedVolumeURLsIncludingResourceValuesForKeys(volumeResKeys, options: [NSVolumeEnumerationOptions.SkipHiddenVolumes])
         for volUrl in volumeUrls! {
-            var volKeyError: NSError?
             var volName: AnyObject?
             var volIdentifier: AnyObject?
             var volBrowsable: AnyObject?
             var volAvailableCapacity: AnyObject?
             var volTotalCapacity: AnyObject?
             
-            volUrl.getResourceValue(&volName, forKey: NSURLVolumeLocalizedNameKey, error: &volKeyError)
-            volUrl.getResourceValue(&volIdentifier, forKey: NSURLVolumeURLKey, error: &volKeyError)
-            volUrl.getResourceValue(&volBrowsable, forKey: NSURLVolumeIsBrowsableKey, error: &volKeyError)
-            volUrl.getResourceValue(&volAvailableCapacity, forKey: NSURLVolumeAvailableCapacityKey, error: &volKeyError)
-            volUrl.getResourceValue(&volTotalCapacity, forKey: NSURLVolumeTotalCapacityKey, error: &volKeyError)
+            do {
+                try volUrl.getResourceValue(&volName, forKey: NSURLVolumeLocalizedNameKey)
+                try volUrl.getResourceValue(&volIdentifier, forKey: NSURLVolumeURLKey)
+                try volUrl.getResourceValue(&volBrowsable, forKey: NSURLVolumeIsBrowsableKey)
+                try volUrl.getResourceValue(&volAvailableCapacity, forKey: NSURLVolumeAvailableCapacityKey)
+                try volUrl.getResourceValue(&volTotalCapacity, forKey: NSURLVolumeTotalCapacityKey)
+            } catch {
+                NSLog("Error reading volumes.")
+            }
             
             let byteFormatter: NSByteCountFormatter = NSByteCountFormatter()
             byteFormatter.allowsNonnumericFormatting = false
@@ -71,14 +73,12 @@ class MyNativeBridge: NSObject, MyNativeBridgeJSExport {
             let totalCapacityUnit = byteFormatter.stringFromByteCount(volTotalCapacity!.longLongValue)
             
             if (volBrowsable!.boolValue == true) {
-                volumesList.addObject(NSDictionary(objectsAndKeys:
-                                        volIdentifier!, "id",
-                                        volName!, "name",
-                                        availableCapacityCount, "bytesAvailableCount",
-                                        availableCapacityUnit, "bytesAvailableUnit",
-                                        totalCapacityCount, "bytesTotalCount",
-                                        totalCapacityUnit, "bytesTotalUnit")
-                )
+                volumesList.addObject(["id": volIdentifier!,
+                                     "name": volName!,
+                      "bytesAvailableCount": availableCapacityCount,
+                       "bytesAvailableUnit": availableCapacityUnit,
+                          "bytesTotalCount": totalCapacityCount,
+                           "bytesTotalUnit": totalCapacityUnit])
             }
             
         }
